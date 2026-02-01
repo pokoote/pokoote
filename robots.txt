@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap 위치
+Sitemap: https://www.pokoote.com/sitemap.xml
+
+# 크롤링 속도 조절 (선택사항)
+Crawl-delay: 1
+
+# 크롤링 제외 디렉토리 (필요시)
+# Disallow: /admin/
+# Disallow: /private/
+
+# 특정 검색엔진 설정
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Bingbot
+Allow: /
