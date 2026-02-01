@@ -1,5 +1,5 @@
 /**
- * 포쿠트 생일초 계산기 - 메인 JavaScript
+ * 포쿠테 생일초 계산기 - 메인 JavaScript
  * www.pokoote.com
  */
 
@@ -190,7 +190,7 @@ function shareToFacebook() {
  */
 function shareToTwitter() {
     const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent('내가 태어난 지 몇 초인지 확인해보세요! 한국나이 생일초 계산기 - 포쿠트');
+    const text = encodeURIComponent('내가 태어난 지 몇 초인지 확인해보세요! 한국나이 생일초 계산기 - 포쿠테');
     const shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
     window.open(shareUrl, '_blank', 'width=600,height=400');
 }
@@ -201,7 +201,7 @@ function shareToTwitter() {
 function shareToKakao() {
     // 카카오톡 공유는 Kakao SDK가 필요합니다
     // 현재는 클립보드 복사로 대체
-    const shareText = `내가 태어난 지 몇 초인지 확인해보세요!\n한국나이 생일초 계산기 - 포쿠트\n${window.location.href}`;
+    const shareText = `내가 태어난 지 몇 초인지 확인해보세요!\n한국나이 생일초 계산기 - 포쿠테\n${window.location.href}`;
     
     if (navigator.share) {
         // Web Share API 지원 (모바일)
@@ -382,6 +382,6 @@ window.addEventListener('error', function(e) {
 });
 
 // 콘솔 메시지
-console.log('%c포쿠트 생일초 계산기', 'color: #8b5cf6; font-size: 24px; font-weight: bold;');
+console.log('%c포쿠테 생일초 계산기', 'color: #8b5cf6; font-size: 24px; font-weight: bold;');
 console.log('%cwww.pokoote.com', 'color: #6366f1; font-size: 16px;');
 console.log('Made with ❤️ in Korea');
