@@ -70,7 +70,6 @@
     
     <!-- Google AdSense -->
     <!-- 
-    애드센스 승인 후 아래 주석을 해제하고 ca-pub-4415805662178533으로 설정하세요
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4415805662178533"
          crossorigin="anonymous"></script>
     -->
@@ -241,32 +240,70 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
         
+        /* 생년월일 입력 섹션 - 커스텀 디자인 */
         .input-section {
             margin-bottom: 30px;
         }
         
-        .input-section label {
+        .input-section > label {
             display: block;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
         }
         
-        .input-section input {
-            width: 100%;
-            padding: 18px;
-            font-size: 1.1em;
-            border: 2px solid #e0e0e0;
+        .birthday-input-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .birthday-input {
+            width: 120px;
+            padding: 18px 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            border: 3px solid #e0e0e0;
             border-radius: 10px;
             transition: all 0.3s;
             font-family: 'Noto Sans KR', sans-serif;
         }
         
-        .input-section input:focus {
+        .birthday-input:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .birthday-input::placeholder {
+            color: #bbb;
+            font-weight: 400;
+        }
+        
+        .input-label {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .input-hint {
+            text-align: center;
+            color: #667eea;
+            font-size: 0.95em;
+            margin-top: 10px;
+            font-weight: 500;
         }
         
         .btn-primary {
@@ -287,6 +324,12 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
         }
         
         /* 결과 섹션 */
@@ -509,6 +552,16 @@
                 padding: 25px;
             }
             
+            .birthday-input {
+                width: 100px;
+                padding: 15px 10px;
+                font-size: 1.1em;
+            }
+            
+            .input-label {
+                font-size: 1em;
+            }
+            
             .age-value {
                 font-size: 2em;
             }
@@ -545,22 +598,43 @@
         <!-- 상단 광고 영역 -->
         <section class="ad-section">
             <div class="container">
-                <!-- 
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4415805662178533"
-                     data-ad-slot="YOUR_AD_SLOT_ID"
-                     data-ad-format="horizontal"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                -->
                 <div class="ad-placeholder">광고 영역 (애드센스 승인 후 활성화)</div>
             </div>
         </section>
 
-
+        <!-- 소개 섹션 -->
+        <section id="about" class="intro-section">
+            <div class="container">
+                <h2><i class="fas fa-info-circle"></i> 한국나이 생일초 계산기란?</h2>
+                <p class="intro-text">
+                    당신이 태어난 순간부터 지금까지 <strong>몇 초</strong>가 흘렀는지, 심장은 <strong>몇 번</strong> 뛰었는지 궁금하신가요?
+                    포쿠테 생일초 계산기는 생년월일만 입력하면 <strong>한국나이</strong>와 <strong>만 나이</strong>를 동시에 계산하고,
+                    실시간으로 업데이트되는 재미있는 통계를 보여드립니다!
+                </p>
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>실시간 계산</h3>
+                        <p>매 초마다 자동으로 업데이트되는 생생한 데이터</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-user-check"></i>
+                        <h3>한국나이 & 만 나이</h3>
+                        <p>두 가지 나이 체계를 한 번에 계산</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>재미있는 통계</h3>
+                        <p>심장박동, 수면시간, 식사 횟수 등</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>모바일 최적화</h3>
+                        <p>스마트폰에서도 완벽하게 작동</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- 계산기 섹션 -->
         <section id="calculator" class="calculator-section">
@@ -569,10 +643,53 @@
                 
                 <div class="calculator-card">
                     <div class="input-section">
-                        <label for="birthdate">
+                        <label>
                             <i class="fas fa-birthday-cake"></i> 생년월일을 입력하세요
                         </label>
-                        <input type="date" id="birthdate" max="">
+                        
+                        <div class="birthday-input-wrapper">
+                            <div class="input-group">
+                                <input 
+                                    type="number" 
+                                    id="birth-year" 
+                                    class="birthday-input"
+                                    placeholder="1990"
+                                    min="1900"
+                                    max="2026"
+                                    maxlength="4"
+                                >
+                                <span class="input-label">년</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input 
+                                    type="number" 
+                                    id="birth-month" 
+                                    class="birthday-input"
+                                    placeholder="1"
+                                    min="1"
+                                    max="12"
+                                    maxlength="2"
+                                >
+                                <span class="input-label">월</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input 
+                                    type="number" 
+                                    id="birth-day" 
+                                    class="birthday-input"
+                                    placeholder="1"
+                                    min="1"
+                                    max="31"
+                                    maxlength="2"
+                                >
+                                <span class="input-label">일</span>
+                            </div>
+                        </div>
+                        
+                        <p class="input-hint">예: 1990년 5월 15일</p>
+                        
                         <button id="calculate-btn" class="btn-primary">
                             <i class="fas fa-play"></i> 계산하기
                         </button>
@@ -622,17 +739,6 @@
 
                         <!-- 중간 광고 영역 -->
                         <div class="ad-section-inline">
-                            <!-- 
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-4415805662178533"
-                                 data-ad-slot="YOUR_AD_SLOT_ID"
-                                 data-ad-format="rectangle"
-                                 data-full-width-responsive="true"></ins>
-                            <script>
-                                 (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                            -->
                             <div class="ad-placeholder">광고 영역 (애드센스 승인 후 활성화)</div>
                         </div>
 
@@ -690,54 +796,9 @@
             </div>
         </section>
 
- <!-- 소개 섹션 -->
-        <section id="about" class="intro-section">
-            <div class="container">
-                <h2><i class="fas fa-info-circle"></i> 한국나이 생일초 계산기란?</h2>
-                <p class="intro-text">
-                    당신이 태어난 순간부터 지금까지 <strong>몇 초</strong>가 흘렀는지, 심장은 <strong>몇 번</strong> 뛰었는지 궁금하신가요?
-                    포쿠테 생일초 계산기는 생년월일만 입력하면 <strong>한국나이</strong>와 <strong>만 나이</strong>를 동시에 계산하고,
-                    실시간으로 업데이트되는 재미있는 통계를 보여드립니다!
-                </p>
-                <div class="features">
-                    <div class="feature-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>실시간 계산</h3>
-                        <p>매 초마다 자동으로 업데이트되는 생생한 데이터</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-user-check"></i>
-                        <h3>한국나이 & 만 나이</h3>
-                        <p>두 가지 나이 체계를 한 번에 계산</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>재미있는 통계</h3>
-                        <p>심장박동, 수면시간, 식사 횟수 등</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>모바일 최적화</h3>
-                        <p>스마트폰에서도 완벽하게 작동</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <!-- 하단 광고 영역 -->
         <section class="ad-section">
             <div class="container">
-                <!-- 
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4415805662178533"
-                     data-ad-slot="YOUR_AD_SLOT_ID"
-                     data-ad-format="horizontal"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                -->
                 <div class="ad-placeholder">광고 영역 (애드센스 승인 후 활성화)</div>
             </div>
         </section>
@@ -767,9 +828,7 @@
                         </h3>
                         <p style="font-size: 1.1em; line-height: 1.8; color: #4b5563;">
                             생년월일을 입력하면 한국나이와 만 나이를 동시에 계산해드립니다. 
-                            <strong>생일 계산</strong>을 통해 정확한 나이를 확인하세요. 
-                            생일계산기는 년, 월, 일, 시간, 분, 초까지 세밀하게 계산하여 
-                            당신의 정확한 나이를 알려드립니다.
+                            <strong>생일 계산</strong>을 통해 정확한 나이를 확인하세요.
                         </p>
                     </div>
                     
@@ -779,9 +838,7 @@
                         </h3>
                         <p style="font-size: 1.1em; line-height: 1.8; color: #4b5563;">
                             <strong>한국나이 계산</strong> 방식에 따라 태어난 해부터 현재 년도까지 계산합니다. 
-                            한국나이와 만 나이의 차이를 쉽게 이해할 수 있습니다. 
-                            한국나이계산 시스템은 태어나자마자 1살로 시작하여 
-                            매년 1월 1일에 나이가 증가하는 독특한 방식입니다.
+                            한국나이와 만 나이의 차이를 쉽게 이해할 수 있습니다.
                         </p>
                     </div>
                     
@@ -790,9 +847,7 @@
                             👤 나이 계산기
                         </h3>
                         <p style="font-size: 1.1em; line-height: 1.8; color: #4b5563;">
-                            <strong>나이 계산</strong>이 필요할 때 생년월일만 입력하면 자동으로 계산됩니다. 
-                            나이계산기를 통해 년, 월, 일, 시간, 분, 초까지 정확히 확인하세요. 
-                            온라인 나이 계산기로 언제 어디서나 간편하게 나이를 계산할 수 있습니다.
+                            <strong>나이 계산</strong>이 필요할 때 생년월일만 입력하면 자동으로 계산됩니다.
                         </p>
                     </div>
                     
@@ -801,9 +856,7 @@
                             👨‍👩‍👧‍👦 부모님 나이 계산
                         </h3>
                         <p style="font-size: 1.1em; line-height: 1.8; color: #4b5563;">
-                            부모님의 생년월일을 입력하여 <strong>부모님 나이 계산</strong>을 할 수 있습니다. 
-                            부모님나이계산을 통해 효도하고 싶을 때 정확한 나이를 확인해보세요. 
-                            부모님께서 살아오신 시간을 초 단위로 확인하면 더욱 감사한 마음이 생깁니다.
+                            부모님의 생년월일을 입력하여 <strong>부모님 나이 계산</strong>을 할 수 있습니다.
                         </p>
                     </div>
                 </div>
@@ -823,8 +876,8 @@
                             Q. 생일초 계산기는 어떻게 사용하나요?
                         </h3>
                         <p style="font-size: 1em; line-height: 1.8; color: #4b5563;">
-                            A. 생년월일을 입력하고 계산하기 버튼을 누르면 태어난 순간부터 
-                            현재까지의 시간을 초 단위로 실시간 계산해드립니다.
+                            A. 생년월일을 년, 월, 일 순서로 입력하고 계산하기 버튼을 누르면 
+                            태어난 순간부터 현재까지의 시간을 초 단위로 실시간 계산해드립니다.
                         </p>
                     </div>
                     
@@ -862,23 +915,83 @@
     </footer>
     
     <script>
-        // 오늘 날짜를 max로 설정
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('birthdate').setAttribute('max', today);
-        
         let birthDate;
         let updateInterval;
         
+        // 숫자 입력 제한 및 자동 포커스
+        const yearInput = document.getElementById('birth-year');
+        const monthInput = document.getElementById('birth-month');
+        const dayInput = document.getElementById('birth-day');
+        
+        // 년도 입력 시 자동으로 월로 이동
+        yearInput.addEventListener('input', function(e) {
+            if (this.value.length === 4) {
+                monthInput.focus();
+            }
+        });
+        
+        // 월 입력 시 자동으로 일로 이동
+        monthInput.addEventListener('input', function(e) {
+            // 2자리 입력 또는 12보다 크면 자동 이동
+            if (this.value.length === 2 || parseInt(this.value) > 1) {
+                dayInput.focus();
+            }
+        });
+        
+        // Enter 키로 계산 실행
+        [yearInput, monthInput, dayInput].forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('calculate-btn').click();
+                }
+            });
+        });
+        
         // 계산 버튼 클릭 이벤트
         document.getElementById('calculate-btn').addEventListener('click', function() {
-            const birthdateInput = document.getElementById('birthdate').value;
+            const year = parseInt(yearInput.value);
+            const month = parseInt(monthInput.value);
+            const day = parseInt(dayInput.value);
             
-            if (!birthdateInput) {
-                alert('생년월일을 입력해주세요!');
+            // 유효성 검사
+            if (!year || !month || !day) {
+                alert('생년월일을 모두 입력해주세요!');
                 return;
             }
             
-            birthDate = new Date(birthdateInput);
+            if (year < 1900 || year > 2026) {
+                alert('년도는 1900년부터 2026년 사이로 입력해주세요!');
+                yearInput.focus();
+                return;
+            }
+            
+            if (month < 1 || month > 12) {
+                alert('월은 1부터 12 사이로 입력해주세요!');
+                monthInput.focus();
+                return;
+            }
+            
+            if (day < 1 || day > 31) {
+                alert('일은 1부터 31 사이로 입력해주세요!');
+                dayInput.focus();
+                return;
+            }
+            
+            // 날짜 유효성 검사 (예: 2월 30일 방지)
+            const testDate = new Date(year, month - 1, day);
+            if (testDate.getMonth() !== month - 1 || testDate.getDate() !== day) {
+                alert('유효하지 않은 날짜입니다!');
+                return;
+            }
+            
+            // 미래 날짜 방지
+            const now = new Date();
+            if (testDate > now) {
+                alert('미래의 날짜는 입력할 수 없습니다!');
+                return;
+            }
+            
+            birthDate = testDate;
             
             // 결과 표시
             document.getElementById('result-section').style.display = 'block';
@@ -893,7 +1006,10 @@
             updateInterval = setInterval(updateTime, 1000);
             
             // 결과로 스크롤
-            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            document.getElementById('result-section').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+            });
         });
         
         function updateTime() {
